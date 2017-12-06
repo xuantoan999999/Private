@@ -10,7 +10,6 @@ export class AppComponent {
   title = 'app';
   constructor(httpService: HttpService) {
     httpService.get().subscribe(data => {
-      console.log('skdgnsd');
     });
   }
 }
