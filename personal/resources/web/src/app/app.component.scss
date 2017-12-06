@@ -1,5 +1,19 @@
-@import "style/_mixing.scss";
+@import "../style/_main.scss";
+.mixing {
+  @include font(null, 60px, red, bold);
+}
 
-.mixing{
-    @include font(null, 60px, red, bold);
+.side-bar {
+  @include position(fixed, 0, null, null, 0);
+  width: 250px;
+  height: 100%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.main-content {
+  padding-left: 250px;
+  .content {
+    padding: 15px;
+  }
 }

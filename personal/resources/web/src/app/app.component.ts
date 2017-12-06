@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'my App';
   constructor(httpService: HttpService) {
     httpService.get().subscribe(data => {
     });
