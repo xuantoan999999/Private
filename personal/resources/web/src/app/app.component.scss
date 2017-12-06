@@ -1,0 +1,5 @@
+@import "style/_mixing.scss";
+
+.mixing{
+    @include font(null, 60px, red, bold);
+}
