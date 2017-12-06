@@ -5,7 +5,9 @@
   "description": "The fullstack application boilerplate for Adonisjs",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "npm-run-all --parallel start_server start_front_end",
+    "start_server": "adonis serve --dev",
+    "start_front_end": "cd resources/web && ng serve --open",
     "test": "node ace test"
   },
   "keywords": [
@@ -13,7 +15,7 @@
     "adonis-app"
   ],
   "author": "",
-  "license": "UNLICENSED",
+  "license": "No license, free to use if you have this.",
   "private": true,
   "dependencies": {
     "@adonisjs/ace": "^4.0.7",
@@ -24,10 +26,23 @@
     "@adonisjs/framework": "^4.0.28",
     "@adonisjs/ignitor": "^1.0.14",
     "@adonisjs/lucid": "^4.0.24",
+    "@adonisjs/mail": "^3.0.3",
+    "@adonisjs/redis": "^2.0.3",
     "@adonisjs/session": "^1.0.19",
-    "@adonisjs/shield": "^1.0.4"
+    "@adonisjs/shield": "^1.0.4",
+    "aguid": "^2.0.0",
+    "axios": "^0.17.1",
+    "glob": "^7.1.2",
+    "jsonwebtoken": "^8.1.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.19.3",
+    "mongoose": "^4.13.6",
+    "mongoose-pagination": "^1.0.0",
+    "tinify": "^1.5.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "npm-run-all": "^4.1.2"
+  },
   "autoload": {
     "App": "./app"
   }

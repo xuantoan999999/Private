@@ -15,4 +15,5 @@
 
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.get('/', 'IndexController.index')
+Route.get('/test-api', 'IndexController.testApi')

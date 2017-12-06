@@ -1,3 +1,4 @@
+import { HttpService } from './services/http.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  constructor(httpService: HttpService) {
+    httpService.get().subscribe(data => {
+      console.log('skdgnsd');
+    });
+  }
 }
