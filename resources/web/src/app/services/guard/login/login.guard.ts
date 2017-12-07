@@ -14,9 +14,8 @@ export class LoginGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     // console.log(next, state);
     return this.authService.getUserLogin().map(resp => {
-      if (resp.user) return true;
-      this.appComponent.showSideBar();
-      this.router.navigate(['dang-nhap']);
+      if(!resp.user) return true;
+      this.router.navigate(['dashboard']);
       return false;
     })
   }

@@ -37,6 +37,7 @@ const routeList = [
         path: 'dang-nhap',
         component: LoginComponent,
         pathMatch: 'full',
+        canActivate: [LoginGuard]
     }
 ];
 @NgModule({
