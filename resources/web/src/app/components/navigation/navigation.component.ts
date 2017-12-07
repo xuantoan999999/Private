@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-
-  constructor() { }
+  listMenu = [
+    this.initMenuSidebar('dashboard', 'Dashboard', {
+      icon: 'dashboard',
+    }),
+    this.initMenuSidebar('dang-nhap', 'Login', {
+      icon: 'dashboard',
+    }),
+  ]
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  initMenuSidebar(route, title, extra) {
+    return { route, title, extra };
+  }
 }

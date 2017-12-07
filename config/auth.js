@@ -25,9 +25,10 @@ module.exports = {
   |
   */
   session: {
-    serializer: 'lucid',
+    serializer: 'MongoSerializer',
     model: 'App/Models/User',
-    scheme: 'session',
+    // scheme: 'session',
+    scheme: 'MongoSchema',
     uid: 'email',
     password: 'password'
   },

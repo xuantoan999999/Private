@@ -1,3 +1,35 @@
-<p>
-  login works!
-</p>
+<div id="mod-login" class="d-flex justify-content-center align-items-center">
+  <!-- <div class="fake-bg"></div> -->
+  <form class="box" #f="ngForm" (ngSubmit)="submit(f)">
+      <h1 class="text-center">Đăng nhập</h1>
+      <div class="form-group">
+          <a (click)="noFunction('Không có đăng ký được đâu. Chỉ có đăng nhập thôi.')" class="link">Người dùng mới ? Đăng ký!</a>
+      </div>
+      <div class="form-group">
+          <mat-form-field class="form-control">
+              <input matInput placeholder="Tên/Email" ngModel name="username" #username="ngModel" autocomplete="off" required>
+          </mat-form-field>
+          <div class="text-danger" *ngIf="(username.touched || f.submitted) && !username.valid">
+              <div *ngIf="username.errors.required">Chưa nhập tên/email</div>
+          </div>
+      </div>
+      <div class="form-group">
+          <mat-form-field class="form-control">
+              <input matInput placeholder="Mật khẩu"  ngModel name="password" #password="ngModel" type="password" autocomplete="off" required>
+          </mat-form-field>
+          <div class="text-danger" *ngIf="(password.touched || f.submitted) && !password.valid">
+              <div *ngIf="password.errors.required">Chưa nhập mật khẩu</div>
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="row">
+              <div class="col-sm-6">
+                  <a (click)="noFunction('Quên ráng chịu.')" class="link">Quên mật khẩu?</a>
+              </div>
+              <div class="col-sm-6 text-right">
+                  <button mat-raised-button color="primary" type="submit">Đăng nhập</button>
+              </div>
+          </div>
+      </div>
+  </form>
+</div>

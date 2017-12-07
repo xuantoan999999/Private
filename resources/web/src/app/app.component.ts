@@ -8,8 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my App';
+  hideSidebar: boolean = true;
   constructor(httpService: HttpService) {
-    httpService.get().subscribe(data => {
-    });
+  }
+
+  hideSideBar(){
+    console.log("Hide Sidebar");
+  }
+  showSideBar(){
+    console.log("Show Sidebar")
   }
 }

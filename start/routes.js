@@ -16,4 +16,7 @@
 const Route = use('Route')
 
 Route.get('/', 'IndexController.index')
-Route.get('/test-api', 'IndexController.testApi')
+
+Route.group(() => {
+    Route.post('check-login', 'AuthController.checkLogin')
+}).prefix('auth')

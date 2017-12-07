@@ -4,16 +4,26 @@
 }
 
 .side-bar {
+  padding-top: 10px;
   @include position(fixed, 0, null, null, 0);
   width: 250px;
   height: 100%;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   background: white;
+  transition: 0.5s;
 }
 
 .main-content {
   padding-left: 250px;
+  transition: 0.5s;
   .content {
     padding: 15px;
   }
+}
+
+.side-bar.hide{
+  left: -250px;
+}
+.main-content.hide-sidebar{
+  padding-left: 0;
 }

@@ -1,4 +1,18 @@
+@import "../../../style/_main.scss";
+
 a {
   display: block;
   text-align: left;
+  transition: 0.5s;
+}
+a.active, a:hover{
+  background: #26c6da;
+  color: white;
+}
+li{
+  padding: 0 10px 10px 10px;
+  .material-icons{
+    @include position(relative, -1px);
+    margin-right: 5px;
+  }
 }

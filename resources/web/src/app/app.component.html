@@ -1,7 +1,7 @@
-<aside class="side-bar">
+<aside class="side-bar" [ngClass]="{'hide': hideSidebar }">
   <app-navigation></app-navigation>
 </aside>
-<section class="main-content">
+<section class="main-content" [ngClass]="{'hide-sidebar': hideSidebar }">
     <div class="content">
         <router-outlet></router-outlet>
     </div>

@@ -1,8 +1,8 @@
-<div class="list">
-  <div class="item">
-    <a mat-button routerLink='/'>Index</a>
-  </div>
-  <div class="item">
-    <a mat-button routerLink='dang-nhap'>Login</a>
-  </div>
-</div>
+<ul class="list-group">
+  <li *ngFor="let menu of listMenu" class="item">
+    <a mat-button [routerLink]='menu.route' routerLinkActive="active">
+      <i class="material-icons icon" *ngIf="menu.extra.icon">{{menu.extra.icon}}</i>
+      {{menu.title}}
+    </a>
+  </li>
+</ul>

@@ -10,23 +10,26 @@ const User = mongoose.model('User');
 const Redis = use('Redis');
 
 class MongoSchema extends BaseScheme {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    async currentUser() {
-        let authorization = this._ctx.request.header('Authorization')
-        let user = await this.getUserByToken(authorization);
-        return user;
-    }
+  async currentUser() {
+    let authorization = this._ctx.request.header('Authorization')
+    let user = await this.getUserByToken(authorization);
+    return user;
+  }
 
-    async getUserByToken(token) {
-        let idRedis = jwt.verify(token, 'secret');
-        let userCache = await Redis.get(idRedis);
-        let decrypted = Encryption.decrypt(userCache);
-        let user = await User.findById(decrypted.user_id).lean();
-        return user;
+  async getUserByToken(token) {
+    let idRedis = jwt.verify(token, 'secret');
+    let userCache = await Redis.get(idRedis);
+    let decrypted = Encryption.decrypt(userCache);
+    if (decrypted) {
+      let user = await User.findById(decrypted.user_id).lean();
+      return user;
     }
+    return null;
+  }
 }
 
 module.exports = MongoSchema;
