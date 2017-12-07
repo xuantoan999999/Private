@@ -13,6 +13,6 @@ export class LoginService extends HttpService {
       username,
       password
     }
-    return data;
+    return this.post('auth/login', data);
   }
 }

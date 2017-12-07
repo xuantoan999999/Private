@@ -8,6 +8,8 @@ const aguid = require('aguid');
 const Redis = use('Redis');
 const Helpers = use('Helpers');
 
+const User = mongoose.model('User');
+
 class AuthController {
     async login({ request, response }) {
         let data = request.all();

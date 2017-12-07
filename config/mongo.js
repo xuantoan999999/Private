@@ -5,5 +5,5 @@ module.exports = {
     port: 27017,
     user: 'root',
     password: '',
-    database: 'mhv_test'
+    database: 'personal'
 }

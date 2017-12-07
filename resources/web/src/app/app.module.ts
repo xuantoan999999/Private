@@ -19,6 +19,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { LoginComponent } from './modules/login/login.component';
 import { IndexComponent } from './modules/index/index.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PopAlertComponent } from './components/modal/pop-alert/pop-alert.component';
 
 const routeList = [
     {
@@ -45,7 +46,8 @@ const routeList = [
         AppComponent,
         NavigationComponent,
         LoginComponent,
-        IndexComponent
+        IndexComponent,
+        PopAlertComponent
     ],
     imports: [
         BrowserModule,
@@ -73,6 +75,9 @@ const routeList = [
         AuthService,
         LoginService
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [
+        PopAlertComponent,
+    ]
 })
 export class AppModule { }

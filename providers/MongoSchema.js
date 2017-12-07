@@ -21,6 +21,7 @@ class MongoSchema extends BaseScheme {
   }
 
   async getUserByToken(token) {
+    if(!token) return null;
     let idRedis = jwt.verify(token, 'secret');
     let userCache = await Redis.get(idRedis);
     let decrypted = Encryption.decrypt(userCache);

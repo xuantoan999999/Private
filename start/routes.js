@@ -19,4 +19,5 @@ Route.get('/', 'IndexController.index')
 
 Route.group(() => {
     Route.post('check-login', 'AuthController.checkLogin')
+    Route.post('login', 'AuthController.login')
 }).prefix('auth')

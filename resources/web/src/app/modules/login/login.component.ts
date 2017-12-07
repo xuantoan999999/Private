@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private authService: AuthService,
-    // private snackBar: MatSnackBar ,
+    private snackBar: MatSnackBar ,
     private router: Router
   ) {
     
@@ -40,9 +40,9 @@ export class LoginComponent implements OnInit {
     if (this.countClick >= 20) {
       message = 'Lầy vãi! Acc nè, vào đi: skecgash1/skecgash';
     }
-    // const snackBarRef = this.snackBar.open(message, 'Close', {
-    //   duration: 3000
-    // });
+    const snackBarRef = this.snackBar.open(message, 'Close', {
+      duration: 3000
+    });
     this.countClick++;
   }
 
@@ -50,18 +50,17 @@ export class LoginComponent implements OnInit {
     if (!form.valid) {
       return;
     }
-    console.log(this.loginService.login(form.value.username, form.value.password));
-      // .subscribe(data => {
-      //   const token = data.token;
-      //   localStorage.setItem(`${this.config.userJWT}_userInfo`, token);
-      //   this.router.navigate(['dash-board']);
-      // }, error => {
-      //   const err = JSON.parse(error._body);
-      //   const message = err.reduce((string, item) => string + item.message, '');
-      //   const snackBarRef = this.snackBar.open(message, 'Close', {
-      //     duration: 3000
-      //   });
-      // });
+    this.loginService.login(form.value.username, form.value.password).subscribe(data => {
+        const token = data.token;
+        localStorage.setItem(`Personal_userInfo`, token);
+        this.router.navigate(['dashboard']);
+      }, error => {
+        const err = JSON.parse(error._body);
+        const message = err.reduce((string, item) => string + item.message, '');
+        const snackBarRef = this.snackBar.open(message, 'Close', {
+          duration: 3000
+        });
+      });
   }
 
 }

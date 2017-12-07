@@ -10,9 +10,6 @@ export class NavigationComponent implements OnInit {
     this.initMenuSidebar('dashboard', 'Dashboard', {
       icon: 'dashboard',
     }),
-    this.initMenuSidebar('dang-nhap', 'Login', {
-      icon: 'dashboard',
-    }),
   ]
   constructor() {
   }

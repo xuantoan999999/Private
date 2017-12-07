@@ -1,5 +1,5 @@
-import { HttpService } from './services/http.service';
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my App';
+  title: string = 'Testtt';
   hideSidebar: boolean = true;
-  constructor(httpService: HttpService) {
+  constructor(authService: AuthService) {
+    const $this = this;
+    authService.showSidebarCalled$.subscribe(() => { $this.showSidebarFunc(); })
+    authService.hideSidebarCalled$.subscribe(() => { $this.hideSidebarFunc(); })
   }
 
-  hideSideBar(){
-    console.log("Hide Sidebar");
+  showSidebarFunc() {
+    this.hideSidebar = false;
   }
-  showSideBar(){
-    console.log("Show Sidebar")
+
+  hideSidebarFunc(){
+    this.hideSidebar = true;
   }
 }
