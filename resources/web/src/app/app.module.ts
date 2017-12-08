@@ -20,6 +20,7 @@ import { LoginComponent } from './modules/login/login.component';
 import { IndexComponent } from './modules/index/index.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PopAlertComponent } from './components/modal/pop-alert/pop-alert.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 const routeList = [
     {
@@ -47,7 +48,8 @@ const routeList = [
         NavigationComponent,
         LoginComponent,
         IndexComponent,
-        PopAlertComponent
+        PopAlertComponent,
+        MenuComponent
     ],
     imports: [
         BrowserModule,

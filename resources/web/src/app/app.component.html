@@ -1,8 +1,11 @@
 <aside class="side-bar" [ngClass]="{'hide': hideSidebar }">
   <app-navigation></app-navigation>
 </aside>
+<aside class="menu" [ngClass]="{'hide-sidebar': hideSidebar, 'hide': hideMenu }">
+  <app-menu></app-menu>
+</aside>
 <section class="main-content" [ngClass]="{'hide-sidebar': hideSidebar }">
-    <div class="content">
-        <router-outlet></router-outlet>
-    </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 </section>

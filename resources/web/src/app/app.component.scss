@@ -3,27 +3,45 @@
   @include font(null, 60px, red, bold);
 }
 
+.side-bar,
+.main-content,
+.menu {
+  transition: 0.5s;
+}
+
 .side-bar {
   padding-top: 10px;
-  @include position(fixed, 0, null, null, 0);
+  @include position(fixed, 0, null, null, 0, 5);
   width: 250px;
   height: 100%;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   background: white;
-  transition: 0.5s;
+}
+
+.menu {
+  padding-left: 250px;
+  @include position(fixed, 0, null, null, 0);
+  width: 100%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .main-content {
+  padding-top: 60px;
   padding-left: 250px;
-  transition: 0.5s;
   .content {
     padding: 15px;
   }
 }
 
-.side-bar.hide{
+.side-bar.hide {
   left: -250px;
 }
-.main-content.hide-sidebar{
+
+.main-content.hide-sidebar,
+.menu.hide-sidebar {
   padding-left: 0;
+}
+
+.menu.hide{
+  top: -65px;
 }
