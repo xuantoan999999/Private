@@ -21,6 +21,9 @@ import { IndexComponent } from './modules/index/index.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PopAlertComponent } from './components/modal/pop-alert/pop-alert.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { AccountComponent } from './modules/account/account.component';
+import { UserComponent } from './modules/user/user.component';
+import { LinkComponent } from './modules/link/link.component';
 
 const routeList = [
     {
@@ -30,17 +33,23 @@ const routeList = [
         canActivate: [AuthGuard]
     },
     {
+        path: 'dang-nhap',
+        component: LoginComponent,
+        pathMatch: 'full',
+        canActivate: [LoginGuard]
+    },
+    {
         path: 'dashboard',
         component: IndexComponent,
         pathMatch: 'full',
         canActivate: [AuthGuard]
     },
     {
-        path: 'dang-nhap',
-        component: LoginComponent,
+        path: 'account',
+        component: AccountComponent,
         pathMatch: 'full',
-        canActivate: [LoginGuard]
-    }
+        canActivate: [AuthGuard]
+    },
 ];
 @NgModule({
     declarations: [
@@ -49,7 +58,10 @@ const routeList = [
         LoginComponent,
         IndexComponent,
         PopAlertComponent,
-        MenuComponent
+        MenuComponent,
+        AccountComponent,
+        UserComponent,
+        LinkComponent
     ],
     imports: [
         BrowserModule,

@@ -10,6 +10,15 @@ export class NavigationComponent implements OnInit {
     this.initMenuSidebar('dashboard', 'Dashboard', {
       icon: 'dashboard',
     }),
+    this.initMenuSidebar('account', 'Account', {
+      icon: 'dashboard',
+    }),
+    // Account
+    // Link
+    // Image
+    // Video
+    // Generate Code
+    // D
   ]
   constructor() {
   }
