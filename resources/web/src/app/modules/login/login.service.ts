@@ -6,13 +6,13 @@ import { Http } from '@angular/http';
 export class LoginService extends HttpService {
 
   constructor(http: Http) {
-    super(http);
+    super(http, 'auth/check-login');
   }
   login(username: string, password: string) {
     let data = {
       username,
       password
     }
-    return this.post('auth/login', data);
+    return this.post(data);
   }
 }

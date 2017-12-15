@@ -11,7 +11,10 @@ export class NavigationComponent implements OnInit {
       icon: 'dashboard',
     }),
     this.initMenuSidebar('account', 'Account', {
-      icon: 'dashboard',
+      icon: 'account_circle',
+    }),
+    this.initMenuSidebar('user', 'User', {
+      icon: 'supervisor_account',
     }),
     // Account
     // Link

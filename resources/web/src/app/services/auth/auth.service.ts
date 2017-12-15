@@ -12,14 +12,14 @@ export class AuthService extends HttpService{
   hideSidebarCalled$ = this.hideSidebarMethodCallSource.asObservable();
 
   constructor(http: Http) {
-    super(http);
+    super(http, 'auth/check-login');
   }
   getUserLogin() {
     let token = localStorage['Personal_userInfo'];
     let data = {
       token
     }
-    return this.post('auth/check-login',data);
+    return this.post(data);
   }
 
   showSidebar(){

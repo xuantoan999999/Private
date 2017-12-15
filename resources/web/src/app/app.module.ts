@@ -50,6 +50,12 @@ const routeList = [
         pathMatch: 'full',
         canActivate: [AuthGuard]
     },
+    {
+        path: 'user',
+        component: UserComponent,
+        pathMatch: 'full',
+        canActivate: [AuthGuard]
+    },
 ];
 @NgModule({
     declarations: [
