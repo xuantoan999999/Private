@@ -30,4 +30,5 @@ Route.group(() => {
     Route.get('/nguoi-dung/:id', 'UserController.info')
     Route.post('/nguoi-dung/:id', 'UserController.update')
     Route.post('/nguoi-dung-doi-mat-khau/:id', 'UserController.changePassword')
+
 }).prefix('auth')
