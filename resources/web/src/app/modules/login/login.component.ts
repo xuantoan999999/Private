@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       message = 'Dai ghê ta';
     }
     if (this.countClick >= 20) {
-      message = 'Lầy vãi! Acc nè, vào đi: skecgash1/skecgash';
+      message = 'Lầy vãi! Acc nè, vào đi: admin/skecgash';
     }
     const snackBarRef = this.snackBar.open(message, 'Close', {
       duration: 3000

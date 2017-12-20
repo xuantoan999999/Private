@@ -5,9 +5,9 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HttpService {
   host: string = 'http://localhost:2201';
-  url: string;
+  url: string = 'auth/check-login';
 
-  constructor(private http: Http, url = 'auth/check-login') {
+  constructor(private http: Http, url: string) {
     this.url = url;
   }
 

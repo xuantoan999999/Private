@@ -1,3 +1,4 @@
+import { UserService } from './modules/user/user.service';
 import { LoginService } from './modules/login/login.service';
 import { AuthGuard } from './services/guard/auth/auth.guard';
 import { AuthService } from './services/auth/auth.service';
@@ -57,6 +58,7 @@ const routeList = [
         canActivate: [AuthGuard]
     },
 ];
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -93,7 +95,8 @@ const routeList = [
         LoginGuard,
         AuthGuard,
         AuthService,
-        LoginService
+        LoginService,
+        UserService
     ],
     bootstrap: [AppComponent],
     entryComponents: [

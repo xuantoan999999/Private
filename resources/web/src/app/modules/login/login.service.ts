@@ -6,7 +6,7 @@ import { Http } from '@angular/http';
 export class LoginService extends HttpService {
 
   constructor(http: Http) {
-    super(http, 'auth/check-login');
+    super(http, 'auth/login');
   }
   login(username: string, password: string) {
     let data = {

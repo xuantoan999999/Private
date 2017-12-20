@@ -6,10 +6,12 @@
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel start_front_end start_server",
+    "build": "npm-run-all --parallel build_front_end",
     "start_server": "adonis serve --dev",
     "start_front_end": "cd resources/web && ng serve --open",
     "to_front_end": "cd resources/web",
-    "test": "node ace test"
+    "test": "node ace test",
+    "build_front_end": "cd resources/web && ng build --target=production --environment=prod"
   },
   "keywords": [
     "adonisjs",
