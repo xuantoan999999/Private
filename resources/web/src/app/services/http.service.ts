@@ -34,11 +34,11 @@ export class HttpService {
   }
 
   getAll(params = {}) {
-    return this.get(params = {});
+    return this.get(params);
   }
 
   create(data, params = {}) {
-    return this.post(data, params = {});
+    return this.post(data, params);
   }
 
   edit(id, params = {}) {
@@ -48,12 +48,12 @@ export class HttpService {
   }
 
   update(id, data, params = {}) {
-    return this.http.post(`${this.host}/${this.url}/${id}`, {
+    return this.http.post(`${this.host}/${this.url}/${id}`, data, {
       params
     }).map(response => response.json());
   }
 
-  remove(id, params = {}){
+  remove(id, params = {}) {
     return this.http.delete(`${this.host}/${this.url}/${id}`)
   }
 

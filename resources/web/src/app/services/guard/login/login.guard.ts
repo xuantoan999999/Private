@@ -14,7 +14,11 @@ export class LoginGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     // console.log(next, state);
     return this.authService.getUserLogin().map(resp => {
-      if(!resp.user) return true;
+      if(!resp.user){
+        this.authService.hideSidebar();
+        return true;
+      }
+      this.authService.showSidebar();
       this.router.navigate(['dashboard']);
       return false;
     })

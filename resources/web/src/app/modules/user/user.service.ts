@@ -13,4 +13,16 @@ export class UserService extends HttpService {
   constructor(http: Http) {
     super(http, 'api/nguoi-dung');
   }
+
+  allRole() {
+    return this.allRoles;
+  }
+
+  searchRole(value) {
+    return this.allRoles.find(role => value === role.value);
+  }
+
+  changePassword(data, id) {
+    // return this.postAdmin(data, `${this.method}-doi-mat-khau`, id);
+  }
 }

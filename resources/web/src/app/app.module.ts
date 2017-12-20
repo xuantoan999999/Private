@@ -25,6 +25,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { AccountComponent } from './modules/account/account.component';
 import { UserComponent } from './modules/user/user.component';
 import { LinkComponent } from './modules/link/link.component';
+import { UserFormComponent } from './modules/user/modal/user-form/user-form.component';
+import { UserChangePasswordComponent } from './modules/user/modal/user-change-password/user-change-password.component';
 
 const routeList = [
     {
@@ -52,7 +54,7 @@ const routeList = [
         canActivate: [AuthGuard]
     },
     {
-        path: 'user',
+        path: 'nguoi-dung',
         component: UserComponent,
         pathMatch: 'full',
         canActivate: [AuthGuard]
@@ -69,7 +71,9 @@ const routeList = [
         MenuComponent,
         AccountComponent,
         UserComponent,
-        LinkComponent
+        LinkComponent,
+        UserFormComponent,
+        UserChangePasswordComponent,
     ],
     imports: [
         BrowserModule,
@@ -101,6 +105,8 @@ const routeList = [
     bootstrap: [AppComponent],
     entryComponents: [
         PopAlertComponent,
+        UserFormComponent,
+        UserChangePasswordComponent,
     ]
 })
 export class AppModule { }

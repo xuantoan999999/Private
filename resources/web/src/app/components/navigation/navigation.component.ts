@@ -10,11 +10,11 @@ export class NavigationComponent implements OnInit {
     this.initMenuSidebar('dashboard', 'Dashboard', {
       icon: 'dashboard',
     }),
+    this.initMenuSidebar('nguoi-dung', 'User', {
+      icon: 'supervisor_account',
+    }),
     this.initMenuSidebar('account', 'Account', {
       icon: 'account_circle',
-    }),
-    this.initMenuSidebar('user', 'User', {
-      icon: 'supervisor_account',
     }),
     // Account
     // Link

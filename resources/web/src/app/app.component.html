@@ -4,7 +4,7 @@
 <aside class="menu" [ngClass]="{'hide-sidebar': hideSidebar, 'hide': hideMenu }">
   <app-menu></app-menu>
 </aside>
-<section class="main-content" [ngClass]="{'hide-sidebar': hideSidebar }">
+<section class="main-content" [ngClass]="{'hide-sidebar': hideSidebar }" *ngIf="loadContent">
   <div class="content">
     <router-outlet></router-outlet>
   </div>

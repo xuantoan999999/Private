@@ -10,6 +10,7 @@ export class AppComponent {
   title: string = 'Testtt';
   hideSidebar: boolean = true;
   hideMenu: boolean = true;
+  loadContent: boolean = false;
   constructor(authService: AuthService) {
     const $this = this;
     authService.showSidebarCalled$.subscribe(() => { $this.showSidebarFunc(); })
@@ -19,10 +20,12 @@ export class AppComponent {
   showSidebarFunc() {
     this.hideSidebar = false;
     this.hideMenu = false;
+    this.loadContent = true;
   }
 
   hideSidebarFunc(){
     this.hideSidebar = true;
     this.hideMenu = true;
+    this.loadContent = true;
   }
 }
