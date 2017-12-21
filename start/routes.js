@@ -35,4 +35,13 @@ Route.group(() => {
   Route.get('/nguoi-dung/:id', 'UserController.info')
   Route.post('/nguoi-dung/:id', 'UserController.update')
   Route.post('/nguoi-dung-doi-mat-khau/:id', 'UserController.changePassword')
+
+  /**
+     * Module Account
+     */
+    Route.get('/tai-khoan', 'AccountController.index')
+    Route.post('/tai-khoan', 'AccountController.store')
+    Route.get('/tai-khoan/:id', 'AccountController.info')
+    Route.post('/tai-khoan/:id', 'AccountController.update')
+    Route.delete('/tai-khoan/:id', 'AccountController.destroy')
 }).prefix('api')

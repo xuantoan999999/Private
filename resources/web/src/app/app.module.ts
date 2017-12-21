@@ -1,3 +1,4 @@
+import { AccountService } from './modules/account/account.service';
 import { UserService } from './modules/user/user.service';
 import { LoginService } from './modules/login/login.service';
 import { AuthGuard } from './services/guard/auth/auth.guard';
@@ -27,6 +28,8 @@ import { UserComponent } from './modules/user/user.component';
 import { LinkComponent } from './modules/link/link.component';
 import { UserFormComponent } from './modules/user/modal/user-form/user-form.component';
 import { UserChangePasswordComponent } from './modules/user/modal/user-change-password/user-change-password.component';
+import { AccountFormComponent } from './modules/account/account-form/account-form.component';
+import { AccountEditFormComponent } from './modules/account/account-edit-form/account-edit-form.component';
 
 const routeList = [
     {
@@ -48,11 +51,31 @@ const routeList = [
         canActivate: [AuthGuard]
     },
     {
-        path: 'account',
-        component: AccountComponent,
-        pathMatch: 'full',
-        canActivate: [AuthGuard]
+        path: 'tai-khoan',
+        // component: AccountComponent,
+        canActivate: [AuthGuard],
+        children: [{
+            path: '',
+            component: AccountComponent,
+            pathMatch: 'full',
+        },
+        {
+            path: 'them',
+            component: AccountFormComponent,
+            pathMatch: 'full',
+        },
+        {
+            path: ':id',
+            component: AccountFormComponent,
+            pathMatch: 'full',
+        }]
     },
+    // {
+    //     path: 'tai-khoan/:id',
+    //     component: AccountFormComponent,
+    //     pathMatch: 'full',
+    //     canActivate: [AuthGuard],
+    // },
     {
         path: 'nguoi-dung',
         component: UserComponent,
@@ -74,6 +97,8 @@ const routeList = [
         LinkComponent,
         UserFormComponent,
         UserChangePasswordComponent,
+        AccountFormComponent,
+        AccountEditFormComponent
     ],
     imports: [
         BrowserModule,
@@ -100,7 +125,8 @@ const routeList = [
         AuthGuard,
         AuthService,
         LoginService,
-        UserService
+        UserService,
+        AccountService
     ],
     bootstrap: [AppComponent],
     entryComponents: [

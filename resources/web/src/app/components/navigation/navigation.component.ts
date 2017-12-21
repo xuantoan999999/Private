@@ -13,7 +13,7 @@ export class NavigationComponent implements OnInit {
     this.initMenuSidebar('nguoi-dung', 'User', {
       icon: 'supervisor_account',
     }),
-    this.initMenuSidebar('account', 'Account', {
+    this.initMenuSidebar('tai-khoan', 'Account', {
       icon: 'account_circle',
     }),
     // Account

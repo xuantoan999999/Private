@@ -1,4 +1,10 @@
 'use strict'
+const Helpers = use('Helpers');
+const mongoose = require('mongoose');
+const Hash = use('Hash');
+const _ = use('lodash');
+
+const Account = mongoose.model('Account');
 
 class AccountController {
     async index({ request, response }) {
