@@ -61,7 +61,6 @@
               <button mat-raised-button type="button" color="primary" (click)="toggleAddForm()">Thêm Account</button>
             </div>
           </div>
-      
           <div class="form-group text-right">
             <button mat-raised-button color="primary" type="submit" [disabled]="(!formAccount.valid || !validFormEditAcc) && formAccount.submitted"
               *ngIf="showAdd">Thêm</button>

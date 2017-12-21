@@ -1,3 +1,4 @@
+import { AccountInfoComponent } from './modal/account-info/account-info.component';
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './account.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -49,11 +50,23 @@ export class AccountComponent implements OnInit {
         this.currentPage = this.accounts.currentPage - 1;
         this.totalPage = this.accounts.totalPage;
         this.showLoading = false;
+
+        let params = this.activeRoute.snapshot.queryParams;
+        this.filter.search = params.search;
       });
   }
 
+  defaultFilter() {
+    return {
+      search: ''
+    }
+  }
+
   setPage(pageInfo) {
-    this.router.navigate(['tai-khoan'], { queryParams: { page: pageInfo.offset + 1, limit: this.itemsPerPage } });
+    let queryParams = JSON.parse(JSON.stringify(this.activeRoute.snapshot.queryParams));
+    queryParams.page = pageInfo.offset + 1;
+    queryParams.limit = this.itemsPerPage;
+    this.router.navigate(['tai-khoan'], { queryParams });
     this.activeRoute.queryParams.subscribe(data => {
       this.getData();
     });
@@ -87,6 +100,17 @@ export class AccountComponent implements OnInit {
           this.setPage({ offset: 0 });
         });
       }
+    });
+  }
+
+  popInfo(id): void {
+    const dialogRef = this.dialog.open(AccountInfoComponent, {
+      width: '750px',
+      data: {id}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.reloadDataFromPop(result);
     });
   }
 

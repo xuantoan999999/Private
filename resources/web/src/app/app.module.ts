@@ -30,6 +30,7 @@ import { UserFormComponent } from './modules/user/modal/user-form/user-form.comp
 import { UserChangePasswordComponent } from './modules/user/modal/user-change-password/user-change-password.component';
 import { AccountFormComponent } from './modules/account/account-form/account-form.component';
 import { AccountEditFormComponent } from './modules/account/account-edit-form/account-edit-form.component';
+import { AccountInfoComponent } from './modules/account/modal/account-info/account-info.component';
 
 const routeList = [
     {
@@ -70,12 +71,6 @@ const routeList = [
             pathMatch: 'full',
         }]
     },
-    // {
-    //     path: 'tai-khoan/:id',
-    //     component: AccountFormComponent,
-    //     pathMatch: 'full',
-    //     canActivate: [AuthGuard],
-    // },
     {
         path: 'nguoi-dung',
         component: UserComponent,
@@ -98,7 +93,8 @@ const routeList = [
         UserFormComponent,
         UserChangePasswordComponent,
         AccountFormComponent,
-        AccountEditFormComponent
+        AccountEditFormComponent,
+        AccountInfoComponent,
     ],
     imports: [
         BrowserModule,
@@ -133,6 +129,7 @@ const routeList = [
         PopAlertComponent,
         UserFormComponent,
         UserChangePasswordComponent,
+        AccountInfoComponent
     ]
 })
 export class AppModule { }

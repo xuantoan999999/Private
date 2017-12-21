@@ -48,6 +48,7 @@ class AccountController {
     async store({ request, response, auth }) {
         let data = request.input('data');
         let currentUser = await auth.currentUser();
+        console.log(currentUser);
         data.creater = currentUser._id;
         let saveAccount = new Account(data);
         await saveAccount.save();

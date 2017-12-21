@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 export class HttpService {
   host: string = 'http://localhost:2201';
   url: string = '';
+  csrfToken;
 
   constructor(private http: Http, url: string) {
     this.url = url;
@@ -13,13 +14,15 @@ export class HttpService {
 
   get(params = {}) {
     return this.http.get(`${this.host}/${this.url}`, {
-      params
+      params,
+      headers: this.setHeader()
     }).map(response => response.json());
   }
 
   post(data, params = {}) {
     return this.http.post(`${this.host}/${this.url}`, data, {
-      params
+      params,
+      headers: this.setHeader()
     }).map(response => response.json());
   }
 
@@ -29,7 +32,8 @@ export class HttpService {
 
   put(data, params = {}) {
     return this.http.put(`${this.host}/${this.url}`, data, {
-      params
+      params,
+      headers: this.setHeader()
     });
   }
 
@@ -43,22 +47,34 @@ export class HttpService {
 
   edit(id, params = {}) {
     return this.http.get(`${this.host}/${this.url}/${id}`, {
-      params
+      params,
+      headers: this.setHeader()
     }).map(response => response.json());
   }
 
   update(id, data, params = {}) {
     return this.http.post(`${this.host}/${this.url}/${id}`, data, {
-      params
+      params,
+      headers: this.setHeader()
     }).map(response => response.json());
   }
 
   remove(id, params = {}) {
-    return this.http.delete(`${this.host}/${this.url}/${id}`)
+    return this.http.delete(`${this.host}/${this.url}/${id}`, {
+      params,
+      headers: this.setHeader()
+    })
   }
 
   convertUrl() {
 
+  }
+
+  setHeader() {
+    let headers = new Headers();
+    headers.append('X-CSRF-TOKEN', this.csrfToken);
+    headers.append('Authorization', localStorage['Personal_userInfo']);
+    return headers;
   }
 
 }

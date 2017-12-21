@@ -1,0 +1,16 @@
+<div id="mod-account-info">
+  <div *ngIf="account">
+    <p>Tên website: {{account.name}}</p>
+    <p>Link website: {{account.website}}</p>
+    <div *ngIf="account.list_account.length > 0">
+      <span>Danh sách:</span><br>
+      <p *ngFor="let item_account of account.list_account">
+        <span *ngIf="item_account.name">- Tên tài khoản: {{item_account.user_name}}, <br></span>
+        <span *ngIf="item_account.email">- Email: {{item_account.email}}<br></span>
+        <span *ngIf="item_account.password">- Mật khẩu: {{item_account.password}}<br></span>
+        <span *ngIf="item_account.extra && item_account.extra != ''">- Thông tin thêm<br></span>
+        <span *ngIf="item_account.extra && item_account.extra != ''">+ {{item_account.extra}}</span>
+      </p>
+    </div>
+  </div>
+</div>
