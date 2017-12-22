@@ -19,10 +19,20 @@ export class NavigationComponent implements OnInit {
     this.initMenuSidebar('link', 'Link', {
       icon: 'web',
     }),
-    // Link
+    this.initMenuSidebar('image-manager', 'Image manager', {
+      icon: 'image',
+    }),
+    this.initMenuSidebar('video-manager', 'Video manager', {
+      icon: 'movie',
+    }),
+    // this.initMenuSidebar('code', 'Code', {
+    //   icon: 'web',
+    // }),
+    // this.initMenuSidebar('diary', 'Diary', {
+    //   icon: 'web',
+    // }),
     // Image
     // Video
-    // Generate Code
     // D
   ]
   constructor() {

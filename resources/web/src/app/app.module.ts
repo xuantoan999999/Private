@@ -33,6 +33,10 @@ import { UserChangePasswordComponent } from './modules/user/modal/user-change-pa
 import { AccountFormComponent } from './modules/account/account-form/account-form.component';
 import { AccountEditFormComponent } from './modules/account/account-edit-form/account-edit-form.component';
 import { AccountInfoComponent } from './modules/account/modal/account-info/account-info.component';
+import { ImageManagerComponent } from './modules/image-manager/image-manager.component';
+import { VideoManagerComponent } from './modules/video-manager/video-manager.component';
+import { DiaryComponent } from './modules/diary/diary.component';
+import { CodeComponent } from './modules/code/code.component';
 
 const routeList = [
     {
@@ -85,6 +89,30 @@ const routeList = [
         pathMatch: 'full',
         canActivate: [AuthGuard]
     },
+    {
+        path: 'image-manager',
+        component: ImageManagerComponent,
+        pathMatch: 'full',
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'video-manager',
+        component: VideoManagerComponent,
+        pathMatch: 'full',
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'code',
+        component: CodeComponent,
+        pathMatch: 'full',
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'diary',
+        component: DiaryComponent,
+        pathMatch: 'full',
+        canActivate: [AuthGuard]
+    },
 ];
 
 @NgModule({
@@ -103,7 +131,11 @@ const routeList = [
         AccountFormComponent,
         AccountEditFormComponent,
         AccountInfoComponent,
-        WebsiteFormComponent
+        WebsiteFormComponent,
+        ImageManagerComponent,
+        VideoManagerComponent,
+        DiaryComponent,
+        CodeComponent
     ],
     imports: [
         BrowserModule,

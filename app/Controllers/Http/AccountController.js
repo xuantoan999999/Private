@@ -7,7 +7,7 @@ const _ = use('lodash');
 const Account = mongoose.model('Account');
 
 class AccountController {
-    async index({ request, response }) {
+    async index({ request, response, auth }) {
         let params = request.all();
         let page = parseInt(params.page) || 1;
         let itemsPerPage = parseInt(params.limit) || 10;
@@ -22,6 +22,8 @@ class AccountController {
                 ]
             })
         if (option_and.length > 0) option = { $and: option_and };
+        let currentUser = await auth.currentUser();
+        console.log(currentUser);
 
         let usersQuery = () => {
             return new Promise((resolve, reject) => {
@@ -48,7 +50,6 @@ class AccountController {
     async store({ request, response, auth }) {
         let data = request.input('data');
         let currentUser = await auth.currentUser();
-        console.log(currentUser);
         data.creater = currentUser._id;
         let saveAccount = new Account(data);
         await saveAccount.save();
