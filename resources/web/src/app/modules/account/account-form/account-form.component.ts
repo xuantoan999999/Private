@@ -55,7 +55,6 @@ export class AccountFormComponent implements OnInit {
     if (!form.valid) {
       return;
     }
-    console.log(this.account_add);
     this.account.list_account.push(this.account_add);
     this.toggleAddForm();
   }
@@ -73,7 +72,6 @@ export class AccountFormComponent implements OnInit {
     if (!this.validFormEditAcc && !form.valid) {
       return;
     }
-    console.log(this.account);
     if (this.showAdd) {
       this.accountService.create({
         data: this.account
