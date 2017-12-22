@@ -16,7 +16,9 @@ export class NavigationComponent implements OnInit {
     this.initMenuSidebar('tai-khoan', 'Account', {
       icon: 'account_circle',
     }),
-    // Account
+    this.initMenuSidebar('link', 'Link', {
+      icon: 'web',
+    }),
     // Link
     // Image
     // Video

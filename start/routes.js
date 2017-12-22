@@ -44,4 +44,13 @@ Route.group(() => {
     Route.get('/tai-khoan/:id', 'AccountController.info')
     Route.post('/tai-khoan/:id', 'AccountController.update')
     Route.delete('/tai-khoan/:id', 'AccountController.destroy')
+
+     /**
+     * Module Website
+     */
+    Route.get('/website', 'WebsiteController.index')
+    Route.post('/website', 'WebsiteController.store')
+    Route.get('/website/:id', 'WebsiteController.info')
+    Route.post('/website/:id', 'WebsiteController.update')
+    Route.delete('/website/:id', 'WebsiteController.destroy')
 }).prefix('api')

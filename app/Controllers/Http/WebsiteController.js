@@ -1,4 +1,9 @@
 'use strict'
+const Helpers = use('Helpers');
+const mongoose = require('mongoose');
+const _ = use('lodash');
+
+const Website = mongoose.model('Website');
 
 class WebsiteController {
     async index({ request, response }) {

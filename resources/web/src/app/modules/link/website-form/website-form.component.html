@@ -1,0 +1,23 @@
+<div id="mod-website" class="container">
+  <form #formWebsite="ngForm" (ngSubmit)="submit(formWebsite)">
+    <div class="form-group">
+      <mat-form-field class="form-control">
+        <input matInput placeholder="Tên" [(ngModel)]="website.name" #nameControl="ngModel" name="name">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="form-control">
+        <input matInput placeholder="Link website" [(ngModel)]="website.link_website" #linWebsiteControl="ngModel" name="linWebsite" required>
+        <mat-error *ngIf="(linWebsiteControl.touched || formWebsite.submitted) && !linWebsiteControl.valid">
+          <span *ngIf="linWebsiteControl.errors.required">Chưa nhập link</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group text-right">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!formWebsite.valid && formWebsite.submitted" *ngIf="showAdd">Thêm</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!formWebsite.valid && formWebsite.submitted" *ngIf="!showAdd">Sửa</button>
+    </div>
+  </form>
+</div>

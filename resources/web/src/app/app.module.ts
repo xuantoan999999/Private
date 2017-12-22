@@ -1,3 +1,5 @@
+import { WebsiteFormComponent } from './modules/link/website-form/website-form.component';
+import { LinkService } from './modules/link/link.service';
 import { AccountService } from './modules/account/account.service';
 import { UserService } from './modules/user/user.service';
 import { LoginService } from './modules/login/login.service';
@@ -77,6 +79,12 @@ const routeList = [
         pathMatch: 'full',
         canActivate: [AuthGuard]
     },
+    {
+        path: 'link',
+        component: LinkComponent,
+        pathMatch: 'full',
+        canActivate: [AuthGuard]
+    },
 ];
 
 @NgModule({
@@ -95,6 +103,7 @@ const routeList = [
         AccountFormComponent,
         AccountEditFormComponent,
         AccountInfoComponent,
+        WebsiteFormComponent
     ],
     imports: [
         BrowserModule,
@@ -122,14 +131,16 @@ const routeList = [
         AuthService,
         LoginService,
         UserService,
-        AccountService
+        AccountService,
+        LinkService
     ],
     bootstrap: [AppComponent],
     entryComponents: [
         PopAlertComponent,
         UserFormComponent,
         UserChangePasswordComponent,
-        AccountInfoComponent
+        AccountInfoComponent,
+        WebsiteFormComponent
     ]
 })
 export class AppModule { }
